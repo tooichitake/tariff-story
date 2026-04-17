@@ -60,7 +60,7 @@ with st.sidebar:
     st.markdown("""
     <div class="sb-label">Contents</div>
     <nav class="sb-nav">
-      <a href="#the-tariff-tax-who-pays" class="sb-opening">
+      <a href="#opening" class="sb-opening">
         <span class="sb-roman">OPEN</span>
         <span><span class="sb-title">The Opening</span><br>
               <span class="sb-question">$364B. Who pays?</span></span>
@@ -149,6 +149,7 @@ customs = load_customs_duties()
 # =============================================================
 # HOOK — The opening (full-bleed visual anchor + narrative hook)
 # =============================================================
+st.markdown('<div id="opening"></div>', unsafe_allow_html=True)
 st.markdown(visual_anchor(
     title="$364 BILLION",
     subtitle="A tax in everything but name.",
