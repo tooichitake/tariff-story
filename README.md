@@ -142,10 +142,10 @@ tariff-story/
 
 ```mermaid
 flowchart LR
-    A[data/raw/<br/>source files] -->|scripts 02, 03, 11| B[data/cleaned/<br/>standardised CSVs]
-    B -->|scripts 04, 05, 10, 13, 14| C[data/joined/<br/>viz1..viz8]
-    C -->|data_loader.py<br/>@st.cache_data| D[app/<br/>Streamlit UI]
-    E[data/reference/<br/>key_events · country_mapping] --> D
+    A["data/raw/<br/>source files"] -->|"scripts 02, 03, 11"| B["data/cleaned/<br/>standardised CSVs"]
+    B -->|"scripts 04, 05, 10, 13, 14"| C["data/joined/<br/>viz1-viz8"]
+    C -->|"data_loader.py<br/>@st.cache_data"| D["app/<br/>Streamlit UI"]
+    E["data/reference/<br/>key_events · country_mapping"] --> D
 ```
 
 ### Which viz drives which act
