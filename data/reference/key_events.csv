@@ -1,0 +1,32 @@
+date,event_short,event_detail,impact_type,eff_tariff_rate_approx,story_act,source_url,affected_categories,window_days,image_path
+2025-01-20,Trump inaugurated,"Donald Trump inaugurated as 47th President, executive orders on trade policy expected",tariff_up,2.5,I,https://www.whitehouse.gov/presidential-actions/,,14,images/inauguration.jpg
+2025-02-01,IEEPA tariffs announced,"25% on Canada/Mexico, 10% on China under IEEPA emergency authority",tariff_up,5.0,I,https://www.whitehouse.gov/briefing-room/presidential-actions/,"Apparel,Footwear,Consumer Electronics,Auto Parts,Fresh Food",14,
+2025-02-04,China retaliates,China announces 15% counter-tariffs on US agricultural products,retaliation,5.0,I,https://www.reuters.com/world/china/,"Fresh Food",14,
+2025-02-12,25% steel & aluminum,Global 25% tariffs on steel and aluminum imports,tariff_up,7.0,I,https://www.federalregister.gov/,"Auto Parts,Machinery,Furniture",14,
+2025-03-04,Canada/Mexico tariffs active,25% tariffs on Canada and Mexico take effect,tariff_up,10.0,I,https://www.federalregister.gov/,"Fresh Food,Auto Parts,Furniture",14,
+2025-03-12,EU counter-tariffs,"EU retaliates with tariffs on US bourbon, motorcycles, agricultural products",retaliation,10.0,I,https://ec.europa.eu/trade/,,14,
+2025-03-19,Powell: transitory,"Fed Chair Powell says tariff inflation likely transitory, one-time price adjustment",negotiation,10.0,I,https://www.federalreserve.gov/monetarypolicy/fomcpresconf.htm,,7,
+2025-04-02,Liberation Day,Sweeping reciprocal tariffs announced: 10% baseline + country-specific rates up to 49%,tariff_up,22.0,I,https://www.whitehouse.gov/briefing-room/statements-releases/,"Apparel,Footwear,Consumer Electronics,Toys & Games,Household Textiles,Furniture",14,images/liberation_day.jpg
+2025-04-04,Powell walks back transitory,Powell acknowledges tariff impact may be larger and more persistent than expected,negotiation,22.0,I,https://www.federalreserve.gov/monetarypolicy/fomcpresconf.htm,,7,
+2025-04-09,90-day pause (ex-China),90-day pause on reciprocal tariffs for all countries except China; 10% baseline remains,tariff_down,18.0,I,https://www.whitehouse.gov/briefing-room/statements-releases/,,14,
+2025-04-10,US-China 125% peak,"Tit-for-tat escalation reaches 125% US tariffs on China, 84% China on US",tariff_up,27.0,I,https://ustr.gov/,"Consumer Electronics,Toys & Games,Apparel,Footwear",14,images/us_china_peak.jpg
+2025-04-25,Auto tariffs 25% effective,25% tariffs on imported automobiles take effect under Section 232,tariff_up,22.0,I,https://www.federalregister.gov/,"Auto Parts",14,
+2025-05-14,Geneva talks — mutual reduction,"US-China Geneva negotiations: mutual tariff reduction, China from 125% to 10% for 90 days",negotiation,17.0,II,https://ustr.gov/,"Consumer Electronics,Toys & Games",14,images/geneva_talks.jpg
+2025-06-01,TPC distributional data released,Tax Policy Center publishes income quintile burden analysis showing regressive impact,negotiation,17.0,II,https://www.taxpolicycenter.org/,,14,
+2025-07-09,90-day pause expires,"Original 90-day pause on reciprocal tariffs expires, rates revert or renegotiate",tariff_up,20.0,II,https://ustr.gov/,,14,
+2025-07-30,Copper tariffs effective,25% tariffs on copper imports take effect under Section 232,tariff_up,20.0,III,https://www.federalregister.gov/,"Consumer Electronics,Machinery",14,
+2025-08-22,Powell Jackson Hole,"Powell characterizes tariff inflation as one-time price level shift, not persistent inflation",negotiation,20.0,II,https://www.federalreserve.gov/newsevents/speech/,,7,
+2025-08-25,Federal Circuit rules vs IEEPA,"Federal Circuit Court rules IEEPA does not authorize tariffs, legal challenge escalates",legal,20.0,II,https://cafc.uscourts.gov/,,30,
+2025-09-15,Reshoring investment surge,"Multiple manufacturers announce US factory investment commitments totaling $50B+ (Reshoring Initiative tracker)",negotiation,18.0,III,https://reshorenow.org/,"Machinery,Consumer Electronics",30,
+2025-10-30,US-China Busan deal,US-China Busan negotiations: tariffs reduced to 35-50% range on most goods,tariff_down,15.0,III,https://ustr.gov/,"Consumer Electronics,Toys & Games,Apparel",14,
+2025-11-15,Manufacturing jobs data,"BLS reports manufacturing employment down ~83K since Jan 2025 baseline despite reshoring announcements",negotiation,15.0,III,https://www.bls.gov/news.release/empsit.toc.htm,,14,
+2025-12-10,Powell: very unusual economy,Powell acknowledges very unusual economy; Fed delivers 3rd rate cut of 2025,negotiation,14.0,III,https://www.federalreserve.gov/newsevents/pressreleases/,,7,
+2025-12-31,2025 trade deficit widens,Full-year data shows US trade deficit widened despite tariffs — deficit paradox confirmed,negotiation,14.0,III,https://www.bea.gov/data/intl-trade-investment/international-trade-goods-and-services,,30,
+2026-01-15,SCOTUS accepts IEEPA case,Supreme Court agrees to hear challenge to IEEPA tariff authority,legal,14.0,IV,https://www.supremecourt.gov/,,30,
+2026-02-20,SCOTUS strikes down IEEPA 6-3,Supreme Court rules 6-3 that IEEPA does not authorize broad tariff authority,legal,14.0,IV,https://www.supremecourt.gov/,,30,images/scotus_ruling.jpg
+2026-02-24,Section 122 takes effect,"Congress passes Section 122 authority as temporary replacement, 150-day window",tariff_up,13.0,IV,https://www.congress.gov/,,30,images/section_122.jpg
+2026-03-05,24 states sue to block S122,Coalition of 24 state attorneys general files lawsuit challenging Section 122 tariff authority,legal,13.0,IV,https://www.naag.org/,,30,
+2026-03-11,S301 investigations launched,USTR launches Section 301 investigations as longer-term tariff mechanism,tariff_up,13.0,IV,https://ustr.gov/issue-areas/enforcement/section-301-investigations,,30,
+2026-04-02,S232 pharma tariffs announced,"Section 232 tariffs up to 100% on patented pharmaceuticals; tiered rates for EU/Japan/Korea/Switzerland (15%); UK exempt; effective Jul 31",tariff_up,11.0,IV,https://www.federalregister.gov/,"Pharmaceuticals",14,
+2026-04-17,Current date,"Section 122 tariffs in effect at 10%, effective tariff rate 11.0% (highest since 1943). July 24 expiration approaching. Pharma S232 pending Jul 31.",threat,11.0,IV,,,14,
+2026-07-24,S122 expires,"Section 122 authority expires — Congress must act, extend, or let tariffs lapse. Rate drops to ~8.2%",threat,8.2,IV,https://www.congress.gov/,,30,

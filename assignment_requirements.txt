@@ -1,0 +1,84 @@
+Assignment 3 - Part 1 - Project Proposal for Data Visualisation Design and Storytelling Project
+Due 19 Apr by 23:59 Points 10 Submitting a file upload
+Project Brief: The Data Narrative Studio
+
+Weighting: 40% (Total) | Format: Group (6-7 members) | Tooling: Tableau OR Streamlit + GitHub + SharePoint/Teams
+
+1. The Challenge
+
+You are a specialist data consultancy. Your task is to transform complex, multi-dimensional data into an interactive, persuasive narrative. This is not a "status dashboard"; it is a human-centered story designed to invoke emotion, convince with data, and drive a specific action.
+
+Subject Intended Learning Outcomes (SILOs)
+
+This project assesses your ability to:
+
+SILO 1: Justify the selection and analysis of data as the basis for ‘data narratives’ for different stakeholders.
+SILO 2: Apply a range of visualisation and narrative techniques to a variety of data types.
+SILO 3: Justify the selection of narrative tools and techniques to illuminate critical aspects of problems.
+SILO 4: Justify and communicate ‘data narratives’ to stakeholders from a range of industries and contexts drawing on relevant data patterns and analyses.
+2. Technical & Narrative Constraints
+
+The "Rich Data" Requirement
+
+Real-World & Recent: No synthetic data. Avoid "Blacklisted" sets (e.g., Titanic, Superstore, Iris). Data must be collected from 2024 onwards.
+Dimensions: Must include Temporal (datetime) or Spatial (names, lat/long, ISO) variables.
+Scale: You must design at least 4 purposeful visuals (minimum).
+Enrichment (The DI/HD Path): High-distinction projects go beyond a single CSV by joining/enriching disparate datasets to reveal deeper "So What" insights.
+Human-Centered Design (HCD)
+
+User Persona & Stories: Define a specific audience and "User Stories" to justify every visual choice. Must have acceptance criteria and definition of done.
+Visual Principles: E.g. Apply Gestalt principles, pre-attentive attributes, and cognitive load optimization.
+Accessibility: E.g. Dashboards must demonstrate high colour contrast and intuitive affordance.
+The "Advanced" Features
+
+You must implement at least three of the following (or tool-specific equivalents):
+
+Context-Aware Filtering: Selections in one visual update narrative text or other visuals dynamically (e.g., Streamlit callbacks or Tableau Parameter Actions).
+Visual Tooltips/Modals: Hover effects revealing deeper insights (e.g., mini-charts within tooltips or Viz-in-Tooltip).
+Narrative Scrollytelling: Using layout components to guide the user through a structured flow.
+What-If Parameterization: Sliders/inputs allowing users to model alternative future scenarios.
+Narrative Arc Options
+
+Groups must select and justify one of the following narrative structures:
+
+What ➡ So What ➡ What Next: The classic executive efficiency arc.
+The Martini Glass: Author-driven narrative leads into a user-driven "sandbox" exploration.
+The Detective: Starting with a data anomaly (the "crime") and uncovering the "culprit" (the variable).
+The Sparkline: Highlighting the gap between "what is" (current data) and "what could be" (the goal).
+3. Assessment Breakdown (40%)
+
+Part 1: Individual Foundation & Group Launch (10%) due on Sunday, 19th of April
+
+Grading: Binary (All-or-Nothing). Full marks (10%) are awarded if all three components are submitted and demonstrate clear, observable effort toward group goals. Incomplete or low-effort submissions receive 0%.
+
+Focus: Preparation, Role Clarity, and Team Synchronization. Submit a 2-page document (or a link to a structured Miro/Gantt board) covering:
+
+Dataset Pitch: Propose one dataset meeting the "Rich Data" criteria. Justify its narrative potential to the group.
+The MDSI Persona: Identify your role (e.g., Architect, Artist, Analyst, Orator) based on a framework (e.g., OCEAN).
+The Game Plan: Observable evidence of contribution to the group’s ideation and timeline (e.g., a screenshot of your specific Miro contributions, a Gantt chart with your assigned milestones, or a "Sprint 1" task list).
+Part 2: The Persuasion Pitch (10%) in class on Wednesday, 13-May-2026
+
+Grading: Shared Group Mark.
+
+Focus: Live Communication
+
+10 Minutes + 2 Mins Q&A. Propose a "Stakeholder Hat" for the audience (e.g., pitching to a Mayor, a CEO, or a Non-Profit Board, farmers).
+
+Goal: Use your prototype to prove a point and drive action.
+Peer Bonus: The cohort will vote for the "Heart-String" (Emotion), "Truth-Teller" (Data Conviction), and "Changemaker" (Call to Action) awards. Top 3 groups receive a +1% to +3% grade bonus. Menti meter voting after each presentation.
+Part 3: Final Portfolio (20%) on Sunday, 17-May-2026
+
+Grading: Shared Group Mark.
+
+Focus: Technical Polish and Delivery
+
+The Live Dashboard: Hosted on Tableau Public or Streamlit Cloud. Must follow a consistent Design System (custom palette or config.toml). Must have responsive load times.
+Video Walkthrough: A 3-minute tour of your code logic or Tableau organization, specifically highlighting the three advanced features.
+Technical Documentation: A mandatory Data Dictionary (definitions of variables, types, and provenance) and a Credits section in your GitHub README.md or as a Sheet in Tableau.  Streamlit code must be annotated; Tableau worksheets must be logically labelled and organized.
+4. The Integrated Studio Model (Collaboration)
+
+We recognize that not everyone is a coder. To succeed, your group must function as an Integrated Studio:
+
+The Code Track (GitHub): Developers/Analysts managing .py files, data cleaning, and deployment.
+The Design & Strategy Track (SharePoint/Teams): Designers/Orators managing personas, branding, scripts, and the slides.
+Accountability Clause: While marks are shared, they are moderated by observable effort. Tutors will cross-reference GitHub/SharePoint version histories. Peer Evaluation will be activated only upon request if a group identifies significant contribution imbalances.

@@ -1,0 +1,41 @@
+# ===== IDE / OS =====
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# ===== Streamlit =====
+.streamlit/secrets.toml
+
+# ===== Large raw data (reproducible via scripts/) =====
+data/raw/fred/
+data/raw/yale/
+data/raw/kaggle/
+data/raw/other/
+
+# Keep the DFAT Australia pivot table — it's the only manually-sourced file
+# the pipeline depends on (17MB, within GitHub limits).
+data/raw/australia/*
+!data/raw/australia/country-commodity-pivot-table-monthly-series.xlsx
+
+# ===== Redundant root-level data copies (legacy) =====
+/raw/
+/cleaned/
+/joined/
+/reference/
+
+# ===== Temp / scratch =====
+*.log
+*.tmp
+~$*
