@@ -7,8 +7,7 @@
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.30%2B-FF4B4B?logo=streamlit&logoColor=white)
 ![Plotly](https://img.shields.io/badge/Plotly-5.18%2B-3F4F75?logo=plotly&logoColor=white)
-![License](https://img.shields.io/badge/License-Academic%202026-5A5A5A)
-![Course](https://img.shields.io/badge/UTS%2036103-AT3%20Data%20Narrative%20Studio-0E1117)
+![Dashboard](https://img.shields.io/badge/Dashboard-Scrollytelling-F5B041)
 
 </div>
 
@@ -17,9 +16,9 @@
 > That is a **3.2× gap** — the same policy, and the poorest Americans pay the most.
 > The question is not whether to keep the tariffs. The question is who keeps paying for them.
 
-[**▶ Try the Dashboard**](#try-it-in-60-seconds) · [**Read the Four Acts**](#what-youll-see--the-four-acts) · [**Why This Arc**](#why-this-narrative-arc) · [**Data Dictionary**](#data-dictionary) · [**Credits**](#credits)
+[**▶ Try the Dashboard**](#try-it-in-60-seconds) · [**Read the Four Acts**](#what-youll-see--the-four-acts) · [**Why This Arc**](#why-this-narrative-arc) · [**Credits**](#credits)
 
-> **Live Streamlit Cloud URL:** _pending deployment — local run fully supported below._
+> **Live Streamlit Cloud URL:** _to be added after deployment — local run fully supported below._
 
 ---
 
@@ -84,9 +83,7 @@ A What-If slider lets the reader move the tariff rate between 8% and 17% and wat
 
 > The arc ends with prescription, not exploration — exactly what a 98-day decision demands.
 
-> _Satisfies assignment requirement: "Groups must select **and justify** one of the following narrative structures."_
-
-The rubric offers four arcs. We chose **What → So What → What Next** (the classic executive efficiency arc). Here is why the other three were the wrong fit for this stakeholder:
+Four common narrative structures were considered. **What → So What → What Next** (the classic executive efficiency arc) was chosen for this stakeholder; here is why the others were the wrong fit:
 
 | Arc | How it works | Why it fails here |
 |---|---|---|
@@ -95,15 +92,7 @@ The rubric offers four arcs. We chose **What → So What → What Next** (the cl
 | Detective | Anomaly → clue → culprit | Requires a genuine unknown. Tariff facts are public — there is no "crime" to solve |
 | Sparkline | Single gap between *what is* and *what could be* | Collapses four gaps (revenue vs jobs, tariff vs deficit, transitory vs cumulative, bottom vs top decile) into one; hides the core insight |
 
-<details>
-<summary><strong>Extended justification (for the graders)</strong></summary>
-
-- The arc's emotional gradient (awe → empathy → complexity → urgency) progressively raises the stakes, so the Act IV countdown lands on a reader who is already informed, not surprised.
-- It allows Act III to be **honest** about trade-offs without derailing the argument. The "So What" phase has explicit room for complexity that other arcs collapse.
-- The arc concludes with prescription, which matches the stakeholder's job. The President's job is not to explore data; it is to make a defensible decision by 24 July 2026.
-- The full stakeholder persona, decision horizon, and user stories driving this choice are documented in [`docs/persona.md`](docs/persona.md).
-
-</details>
+The arc's emotional gradient — awe → empathy → complexity → urgency — progressively raises the stakes, so the Act IV countdown lands on a reader who is already informed, not surprised. It also lets Act III be honest about trade-offs without derailing the argument; the "So What" phase has explicit room for complexity that other arcs collapse. The full stakeholder persona and user stories are in [`docs/persona.md`](docs/persona.md).
 
 ---
 
@@ -182,74 +171,26 @@ python scripts/14_rebuild_data.py              # enhanced viz3 decile parse + vi
 - `scripts/10` reads the **DFAT Australia country-commodity pivot** (`data/raw/australia/country-commodity-pivot-table-monthly-series.xlsx`) — this is the **only raw file committed to the repo** because its source (dfat.gov.au) requires browser download.
 - All other raw data is excluded by `.gitignore` because the scripts re-download it automatically.
 
-`viz6_consumer_map.csv` is a manual derivation from tradewartracker HS2 tariff data — method documented in `Instructions.md` §25.
+`viz6_consumer_map.csv` is a manual derivation from tradewartracker HS2 tariff data.
 
 ---
 
-## Data Dictionary
+## Datasets
 
-> _Satisfies assignment requirement: "A mandatory Data Dictionary (definitions of variables, types, and provenance)."_
+The app consumes eight joined CSVs in `data/joined/` plus two reference files in `data/reference/`. All dates are `YYYY-MM-DD`; country identifiers are ISO 3166 alpha-3. Every joined CSV carries a `source` column tracking provenance.
 
-The app consumes **8 joined datasets** in `data/joined/` plus **2 reference files** in `data/reference/`. Every joined file was produced by merging 2–4 raw sources. All dates are `YYYY-MM-DD`; all country identifiers are ISO 3166 alpha-3.
-
-### Reference files
-
-| Variable | Type | Description | Source |
-|---|---|---|---|
-| `key_events.date` | date | Event date | Press releases · Fed · SCOTUS |
-| `key_events.event_short` | str | ≤ 60-char headline | Editorial |
-| `key_events.event_detail` | str | Full narrative description | Editorial |
-| `key_events.impact_type` | enum | tariff_up / tariff_down / retaliation / legal / negotiation / threat | Editorial |
-| `key_events.eff_tariff_rate_approx` | float | Approximate effective rate on that date (%) | Import-weighted tracker + step function |
-| `key_events.story_act` | enum | I / II / III / IV | Editorial (narrative layer) |
-| `key_events.source_url` | str | Authoritative URL (WH / Fed / SCOTUS / BLS) | Various |
-| `key_events.affected_categories` | str | Product categories (Act II filter) | Editorial |
-| `key_events.window_days` | int | Sidebar-filter window for the event | Editorial |
-| `key_events.image_path` | str | Event thumbnail path | Wikimedia Commons |
-| `country_mapping.name_variant` | str | Alternate country names | Assembled |
-| `country_mapping.iso3` | str | Canonical ISO3 | ISO 3166 |
-
-### Joined viz datasets
-
-| File | Rows | Key columns | Source(s) | Used by |
-|---|---|---|---|---|
-| `viz1_tariff_market_fear.csv` | ~936 daily | date, eff_tariff_rate, sp500, vix, event_short, is_event | tradewartracker + FRED SP500 + VIXCLS + key_events | Act I |
-| `viz2_price_pass_through.csv` | monthly | date, eff_tariff_rate, cpi, cpi_yoy, consumer_sentiment | tradewartracker + FRED CPIAUCSL + UMich | Act II |
-| `viz3_who_pays.csv` | 20 (10 × 2) | decile, decile_label, scenario, pct_income_lost, usd_cost, most_affected_goods, source | Yale Budget Lab Feb 2026 + TPC cross-check | **Act II (central)**, Act IV slider |
-| `viz4_deficit_paradox.csv` | monthly | date, trade_balance, eff_tariff_rate | FRED BOPGSTB + tradewartracker | Act III |
-| `viz5_manufacturing_tradeoff.csv` | 27 monthly | date, industrial_prod, unemployment, mfg_employment, mfg_job_openings, eff_tariff_rate | FRED INDPRO + UNRATE + MANEMP + JTS3000JOL | Act III |
-| `viz6_world_map.csv` | ~100 | iso3, country_name, tariffs_charged_to_usa, us_reciprocal_tariff, exports, imports, trade_deficit | Kratosfury + White House gist + Kaggle | Act III |
-| `viz6_consumer_map.csv` | 57 | iso3, country_name, weighted_tariff_increase, top_category_1/2/3 | Derived — tradewartracker HS2 | Act III |
-| `viz6_animated.csv` | country × day | date, iso3, country_name, effective_tariff | tradewartracker daily by-country | Act I |
-| `viz7_whatif.csv` | 5 | scenario, eff_tariff_rate, gdp_impact_pct, unemployment_increase_pp, price_increase_pct, household_cost_bottom20_usd, household_cost_top20_usd, tariff_revenue_10yr_trillion, source | Yale Feb/Nov 2026 + TPC | Act IV |
-| `viz8_recession_signal.csv` | daily | date, treasury_10y, yield_spread, fed_funds, vix | FRED DGS10 + T10Y2Y + FEDFUNDS + VIXCLS | Act IV |
-
-<details>
-<summary><strong>Raw-source inventory</strong> — grouped by provider (click to expand)</summary>
-
-**Primary — feeds the 8 viz CSVs that ship with the app:**
-
-- **Federal Reserve Economic Data (FRED)** — 17 series: SP500, CPIAUCSL, DTWEXBGS, VIXCLS, DGS10, T10Y2Y, A191RL1Q225SBEA (GDP), BOPGSTB, INDPRO, UNRATE, MANEMP, JTS3000JOL, B235RC1Q027SBEA (customs), FEDFUNDS, DCOILWTICO (oil), DEXUSAL (AUD/USD), UMich Consumer Sentiment. https://fred.stlouisfed.org
-- **Yale Budget Lab** — Feb 2026 distributional workbook + 7 pre-parsed CSVs + ETR methodology release (HTS basic, IEEPA rates, metal-content shares, MFN rates, NAICS/BEA crosswalks, USMCA product shares). Via `ericrono/Tariff-Aftershock` on GitHub.
-- **Tax Policy Center (TPC)** — decile burden cross-check used to validate viz3. https://www.taxpolicycenter.org
-- **Kaggle** — `soulaimanebenayad/trump-era-tariffs-by-country-2025-csv-file`, `danielcalvoglez/us-tariffs-2025`, `raza/Trump_tariffs_by_country`
-- **Global Trade Alert alternatives** (GTA's official data centre requires login) — `Kratosfury/Tariffs-USA` (57 countries), `mcoliver/gist` White House Liberation Day (126 countries), `tradewartracker/trade-war-redux-2025` (daily tariff + HS2 breakdowns)
-- **DFAT Australia** — country-commodity monthly pivot table (17 MB XLSX, committed to the repo), plus related top-25 export/import workbooks. https://www.dfat.gov.au
-- **datasets/gold-prices** — monthly gold price (FRED delisted the LBMA series in Jan 2022)
-
-**Acquired for exploration / cross-validation:**
-
-- **Penn Wharton Budget Model (PWBM)** — effective tariff rate estimates. https://budgetmodel.wharton.upenn.edu
-- **Bruegel** — Global Trade Tracker. https://www.bruegel.org
-- **Federal Reserve Bank of New York** — Survey of Consumer Expectations. https://www.newyorkfed.org
-- **Washington Center for Equitable Growth** — US import matrices, tariff industry codes, imports by state. https://equitablegrowth.org
-- **Reserve Bank of Australia (RBA)** — cash rate history. https://www.rba.gov.au
-- **Australian Bureau of Statistics (ABS)** — merchandise exports/imports. https://www.abs.gov.au
-- **US Census Bureau** — Trade by Country tables. https://www.census.gov/foreign-trade
-- **Bureau of Labor Statistics (BLS)** — via FRED MANEMP/JTS3000JOL.
-- **Bureau of Economic Analysis (BEA)** — via FRED BOPGSTB. https://www.bea.gov
-
-</details>
+| File | What it shows | Act |
+|---|---|---|
+| `viz1_tariff_market_fear` | Daily tariff rate × S&P 500 × VIX × event pins | I |
+| `viz6_animated` | Tariff rate by country over time (animated map) | I |
+| `viz2_price_pass_through` | Monthly tariff × CPI × consumer sentiment | II |
+| `viz3_who_pays` | Decile income loss — two policy scenarios | **II (central)**, IV slider |
+| `viz4_deficit_paradox` | Monthly trade balance × tariff rate | III |
+| `viz5_manufacturing_tradeoff` | Industrial production × employment × job openings | III |
+| `viz6_world_map` | Country-level tariffs + reciprocal + trade flows | III |
+| `viz6_consumer_map` | Per-country tariff increase weighted by consumer goods | III |
+| `viz7_whatif` | Five tariff scenarios (GDP, jobs, prices, revenue) | IV |
+| `viz8_recession_signal` | 10Y Treasury · 2Y-10Y spread · fed funds · VIX | IV |
 
 ---
 
@@ -274,7 +215,6 @@ The app consumes **8 joined datasets** in `data/joined/` plus **2 reference file
 | `Address already in use` on port 8501 | Another Streamlit instance is running | `streamlit run app/app.py --server.port 8502` |
 | `python: command not found` | Python < 3.10 or not on PATH | Install Python 3.10+ and retry |
 | Charts render but a dataset is empty | Joined CSV missing — `data/joined/` incomplete | Re-run the [pipeline](#reproducing-the-pipeline) from script 01 |
-| "Where does the rubric say X?" | The grader needs a quick meta-nav | Narrative arc → [Why This Narrative Arc](#why-this-narrative-arc) · Data Dictionary → [Data Dictionary](#data-dictionary) · Credits → [Credits](#credits) |
 
 ---
 
@@ -290,7 +230,7 @@ The app consumes **8 joined datasets** in `data/joined/` plus **2 reference file
 - **DFAT Australia** — country-commodity pivot table (manual download, committed)
 - **Bureau of Labor Statistics (BLS)** — manufacturing employment (CES/JOLTS)
 - **US Census Bureau** — trade flows
-- Full 25-source list in `Instructions.md`; each joined CSV carries a `source` column tracking provenance.
+- Each joined CSV carries a `source` column tracking provenance.
 
 ### Images (see also [`app/assets/images/LICENSE.md`](app/assets/images/LICENSE.md))
 
@@ -330,19 +270,6 @@ All imagery is Public Domain or CC-licensed — sourced exclusively from Wikimed
 
 ---
 
-## Team Contributions
-
-> _Satisfies Part 3 rubric: "observable effort tracking"._
-
-Populated pre-submission. Graders can audit authorship with:
-
-```bash
-git log --all --format='%h  %an  %s' --reverse
-git shortlog -sn --all
-```
-
----
-
 ## License
 
-Academic coursework (**UTS 36103 — MDSI AT3, 2026**). All data remain with their original publishers under their respective licences. See [`app/assets/images/LICENSE.md`](app/assets/images/LICENSE.md) for image provenance and the _Credits_ section above for code and font licences.
+Data and media remain with their original publishers under their respective licences — see [`app/assets/images/LICENSE.md`](app/assets/images/LICENSE.md) for image provenance, and the _Credits_ section above for code, font, and data licences.
