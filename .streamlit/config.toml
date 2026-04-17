@@ -4,3 +4,10 @@ backgroundColor = "#0E1117"
 secondaryBackgroundColor = "#1B2838"
 textColor = "#FAFAFA"
 font = "sans serif"
+
+[server]
+# Streamlit Community Cloud is read-only; this just keeps local runs clean.
+runOnSave = false
+
+[browser]
+gatherUsageStats = false
