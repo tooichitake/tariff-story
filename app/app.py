@@ -155,9 +155,10 @@ st.markdown(visual_anchor(
     subtitle="A tax in everything but name.",
     eyebrow="The Tariff Tax — A Briefing for the President",
     image_path="images/hook_hero.jpg",
+    video_path="videos/hook_hero.mp4",
     icon="shopping-cart",
     large=True,
-    attribution="Kees Torn / Wikimedia Commons, CC BY-SA 2.0",
+    attribution="Video: Luke Nomad / Pexels · Still: Kees Torn / Wikimedia CC BY-SA 2.0",
     assets_root=ASSETS_DIR,
 ), unsafe_allow_html=True)
 hook.render()

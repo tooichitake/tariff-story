@@ -252,6 +252,28 @@ GLOBAL_CSS = """
     background-size: cover;
     background-position: center;
     filter: brightness(0.85) contrast(1.05) saturate(0.9);
+    /* Ken Burns: a slow push-in + drift, applied only to stills (not videos
+       — their own motion already carries the eye). `transform-origin: 55% 45%`
+       biases the zoom slightly above the visual centre, which reads as
+       "leaning in to look" rather than a mechanical centre-punch. */
+    transform-origin: 55% 45%;
+    will-change: transform;
+}
+.visual-anchor.has-still .va-bg {
+    animation: kenBurns 22s ease-in-out infinite alternate;
+}
+@keyframes kenBurns {
+    0%   { transform: scale(1)    translate(0, 0); }
+    100% { transform: scale(1.08) translate(-1.2%, 1%); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .visual-anchor.has-still .va-bg { animation: none; }
+}
+.visual-anchor .va-bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 /* Heavier dark overlay when no image is present (pure CSS fallback needs
    the gradient to carry visual weight). Lighter overlay when there IS an
@@ -775,6 +797,23 @@ def _image_to_data_uri(path: str) -> str:
     return f"data:{mime};base64,{encoded}"
 
 
+def _video_to_data_uri(path: str) -> str:
+    """Read a local video and return an inline data URI. Empty string if missing.
+
+    Keep videos small (target <2MB) because the whole file is base64-encoded
+    into the page HTML — big files hurt first-paint and memory on Streamlit
+    Cloud.
+    """
+    if not path or not os.path.isfile(path):
+        return ""
+    ext = os.path.splitext(path)[1].lower().lstrip(".")
+    mime = {"mp4": "video/mp4", "webm": "video/webm", "ogg": "video/ogg",
+            "mov": "video/quicktime"}.get(ext, "video/mp4")
+    with open(path, "rb") as f:
+        encoded = base64.b64encode(f.read()).decode("ascii")
+    return f"data:{mime};base64,{encoded}"
+
+
 def visual_anchor(
     title: str,
     subtitle: str = "",
@@ -784,43 +823,67 @@ def visual_anchor(
     large: bool = False,
     attribution: str = "",
     assets_root: str = "",
+    video_path: str = "",
+    video_poster: str = "",
 ) -> str:
     """Render a narrative visual anchor (hero band) with graceful fallback.
 
-    When ``image_path`` resolves to an existing file, the band displays that
-    image behind a dark gradient + overlay text. When the file is absent, the
-    band falls back to a CSS-only illustration: a gradient background with a
-    large low-opacity SVG icon (``icon``) in the corner. Either way the band
-    has the same dimensions and typography, so layout doesn't shift when
-    imagery is added later.
+    Priority for the backdrop is: ``video_path`` → ``image_path`` → CSS-only
+    illustration (gradient + large low-opacity SVG icon). Layout dimensions
+    and overlay typography are identical across all three, so the band
+    doesn't shift when a file is added or removed later.
 
     Args:
         title: Main overlay headline (Playfair Display).
         subtitle: Sub-headline (Inter, 1.15rem).
-        image_path: Relative path from ``assets_root`` to a local image. If
-            the file doesn't exist, CSS illustration fallback is used.
+        image_path: Relative path from ``assets_root`` to a local still
+            image. Used when ``video_path`` is absent/missing.
         eyebrow: Small uppercase tag above the title.
         icon: Key into ``_LUCIDE_SVG`` for the illustration fallback.
         large: If True, uses taller layout + larger title (for H1 Hook).
-        attribution: Photo credit string shown bottom-right (only when image
+        attribution: Credit string shown bottom-right (when image OR video
             is present).
-        assets_root: Directory to resolve ``image_path`` against.
+        assets_root: Directory to resolve ``image_path`` / ``video_path``
+            / ``video_poster`` against.
+        video_path: Relative path to an mp4/webm loop. When present and
+            resolvable, renders a muted autoplay loop instead of a still
+            image. Keep files <2MB — the whole file is base64-inlined.
+        video_poster: Optional still to display until the video decodes
+            (and on devices that block autoplay). Defaults to ``image_path``
+            when omitted.
     """
     # Build the HTML as a flat string (no newlines + no indentation) so
     # Streamlit's markdown pass doesn't mistake blank-looking indented lines
     # — which appear when optional template variables like ``image_path`` or
     # ``attribution`` are empty — for 4-space-indented code blocks.
     classes = "visual-anchor" + (" va-large" if large else "")
-    resolved = os.path.join(assets_root, image_path) if (assets_root and image_path) else image_path
-    data_uri = _image_to_data_uri(resolved) if image_path else ""
-    if data_uri:
-        classes += " has-image"   # triggers lighter gradient so photo shows through
+
+    def _resolve(p: str) -> str:
+        return os.path.join(assets_root, p) if (assets_root and p) else p
+
+    video_uri = _video_to_data_uri(_resolve(video_path)) if video_path else ""
+    image_uri = _image_to_data_uri(_resolve(image_path)) if image_path else ""
+    poster_uri = _image_to_data_uri(_resolve(video_poster)) if video_poster else image_uri
+
+    has_media = bool(video_uri or image_uri)
+    if has_media:
+        classes += " has-image"   # triggers lighter gradient so media shows through
+    if image_uri and not video_uri:
+        classes += " has-still"   # triggers Ken Burns slow-push animation
 
     parts = [f'<div class="{classes}">']
-    if data_uri:
-        parts.append(f'<div class="va-bg" style="background-image: url(\'{data_uri}\');"></div>')
+    if video_uri:
+        poster_attr = f' poster="{poster_uri}"' if poster_uri else ""
+        parts.append(
+            f'<div class="va-bg">'
+            f'<video autoplay muted loop playsinline preload="auto"{poster_attr}>'
+            f'<source src="{video_uri}">'
+            f'</video></div>'
+        )
+    elif image_uri:
+        parts.append(f'<div class="va-bg" style="background-image: url(\'{image_uri}\');"></div>')
     parts.append('<div class="va-gradient"></div>')
-    if not data_uri:
+    if not has_media:
         svg = _LUCIDE_SVG.get(icon, _LUCIDE_SVG["shopping-cart"])
         parts.append(f'<div class="va-illustration">{svg}</div>')
 
@@ -833,7 +896,7 @@ def visual_anchor(
     text_parts.append('</div>')
     parts.append("".join(text_parts))
 
-    if data_uri and attribution:
+    if has_media and attribution:
         parts.append(f'<div class="va-attribution">{attribution}</div>')
 
     parts.append('</div>')
