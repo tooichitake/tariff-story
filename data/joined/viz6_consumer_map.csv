@@ -1,0 +1,58 @@
+country_name,total_consumer_imports_bn,weighted_tariff_increase,top_goods_affected,iso3
+MEXICO,405.274187545,3.8459339815021725,Vehicles (+1%); Machinery (+5%); Electronics (+5%),MEX
+CHINA,336.352589875,30.171268227476435,Electronics (+27%); Machinery (+28%); Toys & games (+36%),CHN
+CANADA,133.166737467,8.976146508935559,Vehicles (+2%); Machinery (+13%); Plastics (+12%),CAN
+VIETNAM,125.978503558,13.941884221869413,Electronics (+11%); Machinery (+6%); Furniture (+20%),VNM
+JAPAN,112.818955398,15.536501662034295,Vehicles (+15%); Machinery (+17%); Electronics (+14%),JPN
+TAIWAN,101.003530365,7.324728304906514,Machinery (+3%); Electronics (+7%); Steel products (+40%),TWN
+"KOREA, SOUTH",100.377342517,14.105050045085767,Vehicles (+15%); Machinery (+14%); Electronics (+9%),KOR
+GERMANY,89.816130011,16.412268006141716,Vehicles (+15%); Machinery (+17%); Electronics (+15%),DEU
+THAILAND,51.77568784,13.983345054600438,Electronics (+11%); Machinery (+10%); Rubber (+23%),THA
+MALAYSIA,41.573072023,10.308837961647306,Electronics (+8%); Machinery (+11%); Rubber (+20%),MYS
+INDIA,39.109004227,36.949949030595654,Electronics (+17%); Machinery (+48%); Home textiles (+50%),IND
+ITALY,38.612480303,16.3650624604114,Machinery (+17%); Vehicles (+15%); Electronics (+15%),ITA
+UNITED KINGDOM,33.606479487,15.61870826734598,Machinery (+11%); Vehicles (+23%); Electronics (+13%),GBR
+FRANCE,24.720450568,15.662216337439695,Machinery (+16%); Beverages (+15%); Electronics (+14%),FRA
+INDONESIA,18.423679671,18.812634157581797,Electronics (+17%); Footwear (+19%); Clothing (+19%),IDN
+CAMBODIA,11.753282475,19.596062725957754,Clothing (+19%); Leather/bags (+19%); Electronics (+20%),KHM
+PHILIPPINES,11.316598175,13.415424275944126,Electronics (+13%); Machinery (+9%); Leather/bags (+19%),PHL
+AUSTRIA,9.872747978,15.380275874899883,Machinery (+15%); Vehicles (+15%); Electronics (+12%),AUT
+SWEDEN,9.828196907,15.787246177830369,Vehicles (+15%); Machinery (+17%); Electronics (+14%),SWE
+ISRAEL,9.606842302,7.00001770415238,Electronics (+3%); Machinery (+15%); Plastics (+15%),ISR
+BRAZIL,9.466270067,36.06352726403786,Machinery (+37%); Electronics (+30%); Processed food (+8%),BRA
+NETHERLANDS,8.943551129,16.290772984186066,Machinery (+16%); Beverages (+15%); Electronics (+16%),NLD
+POLAND,8.694252327,16.003218316187247,Machinery (+16%); Electronics (+16%); Vehicles (+15%),POL
+SPAIN,8.264313649,17.26826559484081,Machinery (+16%); Electronics (+15%); Steel products (+34%),ESP
+SLOVAKIA,7.834702507,15.31342512849799,Vehicles (+15%); Machinery (+17%); Electronics (+17%),SVK
+TURKEY,7.8132669,14.359084484237957,Machinery (+12%); Vehicles (+18%); Electronics (+19%),TUR
+BANGLADESH,7.745046084,20.016864141747305,Clothing (+20%); Clothing (+20%); Footwear (+20%),BGD
+SINGAPORE,7.559605764,7.810053057417612,Machinery (+8%); Electronics (+7%); Plastics (+10%),SGP
+HUNGARY,6.6449895,14.62420057924847,Electronics (+15%); Vehicles (+15%); Machinery (+13%),HUN
+SWITZERLAND,6.46285579,37.55322615128319,Machinery (+38%); Electronics (+35%); Plastics (+36%),CHE
+AUSTRALIA,5.885975642,11.226995517695688,Meat (+10%); Machinery (+16%); Electronics (+11%),AUS
+IRELAND,5.56433291,8.624730291344125,Electronics (+3%); Machinery (+13%); Dairy (+15%),IRL
+CZECH REPUBLIC,5.355054192,14.55066623721667,Machinery (+15%); Electronics (+12%); Rubber (+15%),CZE
+BELGIUM,4.870153648,16.02508599539774,Machinery (+17%); Vehicles (+15%); Electronics (+13%),BEL
+PERU,4.519984261,10.221274011644175,Fruits (+10%); Clothing (+10%); Vegetables (+10%),PER
+HONDURAS,4.287864312,13.799183500142437,Clothing (+10%); Electronics (+24%); Clothing (+10%),HND
+PAKISTAN,4.246527377,19.236820471580348,Home textiles (+19%); Clothing (+19%); Clothing (+19%),PAK
+GUATEMALA,3.845672094,10.142605788167856,Fruits (+10%); Clothing (+10%); Vegetables (+10%),GTM
+COSTA RICA,3.806542308,12.09701550623091,Electronics (+6%); Fruits (+15%); Rubber (+22%),CRI
+NEW ZEALAND,3.6054158,15.897106515426044,Meat (+15%); Beverages (+15%); Dairy (+15%),NZL
+SOUTH AFRICA,3.523723232,26.573056216408315,Vehicles (+25%); Machinery (+31%); Fruits (+30%),ZAF
+CHILE,3.456121427,12.021551255525376,Fruits (+10%); Rubber (+25%); Meat (+10%),CHL
+NICARAGUA,3.193249343,19.539672744559617,Clothing (+18%); Electronics (+25%); Meat (+18%),NIC
+DENMARK,3.185258067,20.247857067902686,Machinery (+17%); Electronics (+19%); Steel products (+45%),DNK
+DOMINICAN REPUBLIC,2.735763032,10.70857033022442,Electronics (+11%); Clothing (+10%); Plastics (+10%),DOM
+FINLAND,2.540842016,17.854828737608536,Machinery (+20%); Electronics (+14%); Vehicles (+15%),FIN
+ROMANIA,2.54072299,15.910089491889078,Electronics (+14%); Machinery (+17%); Rubber (+15%),ROU
+SRI LANKA,2.437935933,20.034555251784788,Clothing (+20%); Clothing (+20%); Rubber (+20%),LKA
+PORTUGAL,2.435948199,15.740165172945863,Electronics (+10%); Rubber (+15%); Machinery (+17%),PRT
+COLOMBIA,2.075298006,14.083257734793005,Fruits (+10%); Electronics (+12%); Plastics (+10%),COL
+JORDAN,2.04580665,15.126923546269634,Clothing (+15%); Clothing (+15%); Machinery (+16%),JOR
+EGYPT,1.646341186,10.373587234061944,Clothing (+10%); Clothing (+10%); Processed food (+10%),EGY
+EL SALVADOR,1.624021074,10.709121980273022,Clothing (+10%); Electronics (+18%); Clothing (+10%),SLV
+UNITED ARAB EMIRATES,1.349557163,25.398196389699724,Steel products (+37%); Machinery (+12%); Electronics (+33%),ARE
+ARGENTINA,1.324872111,11.164288407305753,Processed food (+10%); Meat (+10%); Fruits (+10%),ARG
+MOROCCO,1.199305948,11.066448842460005,Electronics (+8%); Clothing (+10%); Fruits (+10%),MAR
+ECUADOR,1.153328724,15.465689455073349,Fruits (+15%); Processed food (+15%); Vegetables (+15%),ECU
