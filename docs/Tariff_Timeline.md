@@ -3,7 +3,7 @@
 
 **Project Context**: AT3 Data Narrative Studio — "The Tariff Tax: Who Pays?"
 **Stakeholder**: US President
-**Narrative**: Even if tariff inflation is a one-time price shift (as the Fed's base case suggests), the burden falls disproportionately on low-income households — 3.6% of income for the bottom decile vs 1.1% for the top.
+**Narrative**: Even if tariff inflation is a one-time price shift (as the Fed's base case suggests), the burden falls disproportionately on low-income households — 1.14% of income for the bottom decile vs 0.36% for the top (Yale Budget Lab Feb 2026, Current Policy / S122 scenario; see `data/joined/viz3_who_pays.csv`).
 
 ---
 

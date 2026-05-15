@@ -241,7 +241,7 @@ Source: Yale Budget Lab distributional analysis (Feb 2026). The Bottom decile lo
 ### Join 5 — Act III: Manufacturing Trade-off (Monthly)
 **Output**: `data/joined/viz5_manufacturing_tradeoff.csv`
 - Merge industrial production + unemployment + tariff rate on `month`
-- Add annotation: "Investment announcements surging BUT 83K jobs lost in 2025"
+- Add annotation: "Investment announcements surging BUT ~82K mfg jobs lost since Jan 2025"
 - **Story**: "Factories were promised. Investment rose. But the jobs didn't follow — yet."
 
 ### Join 6 — Global Map (Country Level, split across Acts I and III)
@@ -285,7 +285,7 @@ viz7.to_csv("data/joined/viz7_whatif.csv", index=False)
 
 ## Key Events Timeline
 
-Create `data/reference/key_events.csv` with ~27 events. Include columns:
+Create `data/reference/key_events.csv` with 31 events. Include columns:
 - `date` (YYYY-MM-DD)
 - `event_short` (< 60 chars)
 - `event_detail` (full description)
