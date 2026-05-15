@@ -52,7 +52,7 @@ def render(viz3):
     st.markdown(f"""
     <div class="hook-container">
         <div style="font-size:0.8rem; color:#7F8C8D; letter-spacing:2px; text-transform:uppercase; margin-bottom:1.5rem;">
-            Washington, D.C. &mdash; {date_str} &mdash; Effective tariff rate: 11.0%
+            Washington, D.C. &mdash; {date_str} &mdash; Effective tariff rate: 13.0%
         </div>
         <div class="hook-amount">$364B</div>
         <div class="hook-subtitle">Your tariff policy raised this in one year &mdash; more than any year since 1943.</div>
